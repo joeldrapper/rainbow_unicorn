@@ -1,5 +1,7 @@
 module RainbowUnicorn
 	class Palette
+		include Enumerable
+
 		def self.define(**colors)
 		  new(
 				colors.transform_values { |rgb| RainbowUnicorn::Color.new(*rgb) }
