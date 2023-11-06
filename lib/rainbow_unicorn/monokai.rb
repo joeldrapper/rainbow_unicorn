@@ -7,7 +7,7 @@ module RainbowUnicorn
   	peach: [238, 157, 112],
   	pineapple: [249, 217, 120],
   	kiwi: [180, 219, 130],
-  	spirulina: [144, 218, 130],
+  	spirulina: [144, 218, 230],
   	lavender: [168, 158, 236],
 	)
 end
