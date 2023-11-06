@@ -1,6 +1,6 @@
 # https://rosepinetheme.com/palette/ingredients/
 module RainbowUnicorn
-	RoséPineMoon = Color.define(
+	RoséPineMoon = Palette.define(
 		base: [35, 33, 54],
 		surface: [42, 39, 63],
 		overlay: [57, 53, 82],
@@ -16,5 +16,8 @@ module RainbowUnicorn
 		highlight_low: [42, 40, 62],
 		highlight_med: [68, 65, 90],
 		highlight_high: [86, 82, 110],
+
+		# This was not part of the original palette, but was added in the Zed Rosé Pine Moon theme.
+		leaf: [119, 192, 165],
 	)
 end
