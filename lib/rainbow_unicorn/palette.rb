@@ -47,5 +47,13 @@ module RainbowUnicorn
 		def [](code)
 			@colors[code]
 		end
+
+		def sample
+			@colors.each do |name, color|
+				puts "\e[38;2;#{color.r};#{color.g};#{color.b}m️◼︎️ #{name}\e[0m"
+			end
+
+			nil
+		end
 	end
 end
