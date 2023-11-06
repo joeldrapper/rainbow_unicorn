@@ -16,5 +16,8 @@ module RainbowUnicorn
 		highlight_low: [33, 32, 46],
 		highlight_med: [64, 61, 82],
 		highlight_high: [82, 79, 103],
+
+		# This was not part of the original palette, but was added in the Zed Rosé Pine theme.
+		leaf: [119, 192, 165],
 	)
 end
