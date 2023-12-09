@@ -15,6 +15,10 @@ module RainbowUnicorn
 			freeze
 		end
 
+		def self.from_i(int)
+			new(int >> 16, (int >> 8) & 255, int & 255)
+		end
+
 		def self.from_hsl(h, s, l)
 			unless (0..360) === h && (0..1) === s && (0..1) === l
 				raise TypeError, "hsl values must be between 0 and 360 for h and 0 and 1 for s and l"
@@ -188,6 +192,10 @@ module RainbowUnicorn
 		def desaturate(amount)
 			h, s, l = hsl
 			self.class.from_hsl(h, [(s - amount), 0].max, l)
+		end
+
+		def to_i
+			(r << 16) + (g << 8) + b
 		end
 	end
 end
