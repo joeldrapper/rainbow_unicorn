@@ -113,6 +113,13 @@ module RainbowUnicorn
 			(0.2126 * r) + (0.7152 * g) + (0.0722 * b)
 		end
 
+		def contrast_ratio(other)
+			a = relative_luminance
+			b = other.relative_luminance
+
+			a > b ? (a + 0.05) / (b + 0.05) : (b + 0.05) / (a + 0.05)
+		end
+
 		def to_s
 			"rgb(#{rgb.join(', ')})"
 		end
