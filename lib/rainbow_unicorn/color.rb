@@ -98,6 +98,21 @@ module RainbowUnicorn
 			"##{rgb.map { |c| c.to_s(16).rjust(2, '0') }.join}"
 		end
 
+		def relative_luminance
+			# Convert 8-bit RGB to the range 0-1
+			rsrgb = r / 255.0
+			gsrgb = g / 255.0
+			bsrgb = b / 255.0
+
+			# Apply the piecewise linear transformation
+			r = rsrgb <= 0.04045 ? rsrgb / 12.92 : ((rsrgb + 0.055) / 1.055)**2.4
+			g = gsrgb <= 0.04045 ? gsrgb / 12.92 : ((gsrgb + 0.055) / 1.055)**2.4
+			b = bsrgb <= 0.04045 ? bsrgb / 12.92 : ((bsrgb + 0.055) / 1.055)**2.4
+
+			# Calculate relative luminance
+			(0.2126 * r) + (0.7152 * g) + (0.0722 * b)
+		end
+
 		def to_s
 			"rgb(#{rgb.join(', ')})"
 		end
