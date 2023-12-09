@@ -127,13 +127,13 @@ module RainbowUnicorn
 			@rgb[1]
 		end
 
-		alias_method :g
+		alias_method :g, :green
 
 		def blue
 			@rgb[2]
 		end
 
-		alias_method :b
+		alias_method :b, :blue
 
 		def lighten(amount)
 			h, s, l = hsl
