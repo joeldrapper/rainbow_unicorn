@@ -120,6 +120,26 @@ module RainbowUnicorn
 			a > b ? (a + 0.05) / (b + 0.05) : (b + 0.05) / (a + 0.05)
 		end
 
+		def wcag_minimum_body_text_contrast?(other)
+			contrast_ratio(other) >= 4.5
+		end
+
+		def wcag_minimum_large_text_contrast?(other)
+			contrast_ratio(other) >= 3.0
+		end
+
+		def wcag_enhanced_body_text_contrast?(other)
+			contrast_ratio(other) >= 7.0
+		end
+
+		def wcag_enhanced_large_text_contrast?(other)
+			contrast_ratio(other) >= 4.5
+		end
+
+		def wcag_minimum_ui_contrast?(other)
+			contrast_ratio(other) >= 3.0
+		end
+
 		def to_s
 			"rgb(#{rgb.join(', ')})"
 		end
