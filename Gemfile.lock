@@ -1,11 +1,9 @@
-PATH
-  remote: ../green_dots
+GIT
+  remote: https://github.com/joeldrapper/green_dots.git
+  revision: 6aa5a700a46c443968293ad1fa444b4a0a870854
   specs:
     green_dots (0.1.0)
       concurrent-ruby
-      prism
-      rouge
-      tty-tree
       zeitwerk
 
 PATH
@@ -17,18 +15,43 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
+    ast (2.4.2)
     concurrent-ruby (1.2.2)
-    prism (0.13.0)
-    rouge (4.1.3)
-    tty-tree (0.4.0)
+    json (2.7.1)
+    language_server-protocol (3.17.0.3)
+    parallel (1.23.0)
+    parser (3.2.2.4)
+      ast (~> 2.4.1)
+      racc
+    racc (1.7.3)
+    rainbow (3.1.1)
+    regexp_parser (2.8.3)
+    rexml (3.2.6)
+    rubocop (1.58.0)
+      json (~> 2.3)
+      language_server-protocol (>= 3.17.0)
+      parallel (~> 1.10)
+      parser (>= 3.2.2.4)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 1.8, < 3.0)
+      rexml (>= 3.2.5, < 4.0)
+      rubocop-ast (>= 1.30.0, < 2.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 2.4.0, < 3.0)
+    rubocop-ast (1.30.0)
+      parser (>= 3.2.1.0)
+    ruby-progressbar (1.13.0)
+    unicode-display_width (2.5.0)
     zeitwerk (2.6.12)
 
 PLATFORMS
   arm64-darwin-22
+  arm64-darwin-23
 
 DEPENDENCIES
   green_dots!
   rainbow_unicorn!
+  rubocop
 
 BUNDLED WITH
    2.4.12

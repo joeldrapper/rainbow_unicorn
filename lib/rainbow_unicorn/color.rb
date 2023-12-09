@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module RainbowUnicorn
 	class Color
 		def initialize(r, g, b)
@@ -14,33 +16,33 @@ module RainbowUnicorn
 		end
 
 		def self.from_hsl(h, s, l)
-		  unless (0..360) === h && (0..1) === s && (0..1) === l
+			unless (0..360) === h && (0..1) === s && (0..1) === l
 				raise TypeError, "hsl values must be between 0 and 360 for h and 0 and 1 for s and l"
-		  end
+			end
 
-		  c = (1 - (2 * l - 1).abs) * s
-		  x = c * (1 - ((h / 60.0) % 2 - 1).abs)
-		  m = l - c / 2.0
+			c = (1 - ((2 * l) - 1).abs) * s
+			x = c * (1 - (((h / 60.0) % 2) - 1).abs)
+			m = l - (c / 2.0)
 
-		  r1, g1, b1 = if h < 60
-        [c, x, 0]
-      elsif h < 120
-        [x, c, 0]
-      elsif h < 180
-        [0, c, x]
-      elsif h < 240
-        [0, x, c]
-      elsif h < 300
-        [x, 0, c]
-      else
-        [c, 0, x]
-      end
+			r1, g1, b1 = if h < 60
+				[c, x, 0]
+			elsif h < 120
+				[x, c, 0]
+			elsif h < 180
+				[0, c, x]
+			elsif h < 240
+				[0, x, c]
+			elsif h < 300
+				[x, 0, c]
+			else
+				[c, 0, x]
+			end
 
-		  r = ((r1 + m) * 255).round
-		  g = ((g1 + m) * 255).round
-		  b = ((b1 + m) * 255).round
+			r = ((r1 + m) * 255).round
+			g = ((g1 + m) * 255).round
+			b = ((b1 + m) * 255).round
 
-		  new(r, g, b)
+			new(r, g, b)
 		end
 
 		def self.from_hex(hex)
@@ -64,11 +66,11 @@ module RainbowUnicorn
 				s = l > 0.5 ? d / (2.0 - max - min) : d / (max + min)
 				case max
 				when r
-					h = (g - b) / d + (g < b ? 6.0 : 0)
+					h = ((g - b) / d) + (g < b ? 6.0 : 0)
 				when g
-					h = (b - r) / d + 2.0
+					h = ((b - r) / d) + 2.0
 				when b
-					h = (r - g) / d + 4.0
+					h = ((r - g) / d) + 4.0
 				end
 				h /= 6.0
 			end
@@ -100,17 +102,23 @@ module RainbowUnicorn
 			"rgb(#{rgb.join(', ')})"
 		end
 
-		alias_method :r, def red
+		def red
 			@rgb[0]
 		end
 
-		alias_method :g, def green
+		alias_method :r, :red
+
+		def green
 			@rgb[1]
 		end
 
-		alias_method :b, def blue
+		alias_method :g
+
+		def blue
 			@rgb[2]
 		end
+
+		alias_method :b
 
 		def lighten(amount)
 			h, s, l = hsl
