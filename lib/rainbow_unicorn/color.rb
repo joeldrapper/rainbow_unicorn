@@ -140,6 +140,14 @@ module RainbowUnicorn
 			contrast_ratio(other) >= 3.0
 		end
 
+		def light?
+			relative_luminance > 0.5
+		end
+
+		def dark?
+			!light?
+		end
+
 		def to_s
 			"rgb(#{rgb.join(', ')})"
 		end
